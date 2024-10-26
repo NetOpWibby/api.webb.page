@@ -1,0 +1,5 @@
+# Test
+
+```sh
+deno lint
+```

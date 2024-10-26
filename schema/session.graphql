@@ -1,0 +1,65 @@
+
+
+
+#
+# Type
+#
+
+type Session {
+  device: String
+  expires: DateTime!
+  for: User
+  ip: String
+  nickname: String
+  token: String
+  #
+  created: DateTime!
+  id: ID!
+  updated: DateTime!
+}
+
+type SessionResponse {
+  detail: Session
+  error: [Error]
+}
+
+type SessionsResponse {
+  detail: [Session]
+  error: [Error]
+  pageInfo: Pagination
+}
+
+
+
+#
+# Input
+#
+
+input SessionInput {
+  device: String
+  expires: DateTime
+  "User ID"
+  for: String
+  ip: String
+  nickname: String
+  token: String
+}
+
+input SessionQuery {
+  for: String
+  id: ID
+  token: String
+}
+
+input SessionsQuery {
+  "User ID"
+  for: String
+  wildcard: String
+}
+
+
+
+#
+# keep this file in sync
+# with `src/component/session/schema.ts`
+#

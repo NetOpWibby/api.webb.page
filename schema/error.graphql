@@ -1,0 +1,11 @@
+
+
+
+#
+# Type
+#
+
+type Error {
+  code: String
+  message: String
+}

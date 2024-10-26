@@ -1,0 +1,117 @@
+
+
+
+#
+# Enum
+#
+
+enum LoginMethod {
+  LINK
+  TOKEN
+}
+
+enum MonkSkinTone {
+  "#f6ede4"
+  MONK_01
+  "#f3e7db"
+  MONK_02
+  "#f7ead0"
+  MONK_03
+  "#eadaba"
+  MONK_04
+  "#d7bd96"
+  MONK_05
+  "#a07e56"
+  MONK_06
+  "#825c43"
+  MONK_07
+  "#604134"
+  MONK_08
+  "#3a312a"
+  MONK_09
+  "#292420"
+  MONK_10
+  "simpsons yellow"
+  UNSET
+}
+
+enum Pronoun {
+  AE
+  E
+  EY
+  FAE
+  HE
+  PER
+  SHE
+  THEY
+  UNSET
+  VE
+  XE
+  ZE
+  ZIE
+}
+
+
+
+#
+# Type
+#
+
+type UserCounts {
+  posts: Int
+}
+
+type User {
+  bio: String
+  counts: UserCounts
+  email: String
+  homepage: String
+  location: String
+  loginMethod: LoginMethod
+  name: String
+  pfp: String
+  pronoun: Pronoun
+  skintone: MonkSkinTone
+  username: String
+  #
+  created: DateTime!
+  id: ID!
+  updated: DateTime!
+}
+
+type UserResponse {
+  detail: User
+  error: Error
+}
+
+
+
+#
+# Input
+#
+
+input UserInput {
+  bio: String
+  email: String
+  homepage: String
+  location: String
+  loginMethod: LoginMethod
+  name: String
+  pfp: String
+  pronoun: Pronoun
+  skintone: MonkSkinTone
+  username: String
+}
+
+input UserQuery {
+  email: String
+  id: ID
+  username: String
+}
+
+
+
+#
+# keep this file in sync
+# with `src/component/user/schema.ts`
+#

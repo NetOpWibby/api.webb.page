@@ -1,0 +1,62 @@
+
+
+
+#
+# Type
+#
+
+type BlogPost {
+  author: User
+  content: String
+  isDraft: Int
+  number: Int
+  tags: [String]
+  title: String
+  tldr: String
+  #
+  created: DateTime!
+  id: ID!
+  updated: DateTime!
+}
+
+type BlogPostResponse {
+  detail: BlogPost
+  error: Error
+}
+
+type BlogPostsResponse {
+  detail: [BlogPost]
+  error: Error
+  pageInfo: Pagination
+}
+
+
+
+#
+# Input
+#
+
+input BlogPostInput {
+  author: String
+  content: String
+  isDraft: Int
+  tags: [String]
+  title: String
+  tldr: String
+}
+
+input BlogPostQuery {
+  id: ID
+  number: Int
+}
+
+input BlogPostsQuery {
+  author: String
+}
+
+
+
+#
+# keep this file in sync
+# with `src/component/blogpost/schema.ts`
+#

@@ -1,0 +1,70 @@
+
+
+
+#
+# Enum
+#
+
+enum Scope {
+  BLOGPOST
+  BLOGPOST_READ
+  USER
+  USER_READ
+}
+
+
+
+#
+# Type
+#
+
+type PersonalKey {
+  expires: DateTime
+  key: String
+  owner: User
+  scope: Scope
+  #
+  created: DateTime!
+  id: ID!
+}
+
+type PersonalKeyResponse {
+  detail: PersonalKey
+  error: Error
+}
+
+type PersonalKeysResponse {
+  detail: [PersonalKey]
+  error: Error
+  pageInfo: Pagination
+}
+
+
+
+#
+# Input
+#
+
+input PersonalKeyInput {
+  # automatically set `owner` via session data
+  # from request after validation
+  expires: DateTime
+  scope: Scope
+}
+
+input PersonalKeyQuery {
+  id: ID
+}
+
+input PersonalKeysQuery {
+  expires: DateTime
+  owner: String
+  scope: Scope
+}
+
+
+
+#
+# keep this file in sync
+# with `src/component/api/schema.ts`
+#

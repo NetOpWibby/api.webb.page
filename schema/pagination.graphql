@@ -1,0 +1,38 @@
+"""
+Have pagination, will enumerate.
+"""
+
+
+
+#
+# Type
+#
+
+type Pagination {
+  "This will most likely be the `created` parameter of a post or user"
+  cursor: String
+  "Does this pagination query have additional pages?"
+  hasNextPage: Boolean
+  "Does this pagination query have previous pages?"
+  hasPreviousPage: Boolean
+}
+
+
+
+#
+# Input
+#
+
+input PaginationOptions {
+  after: DateTime
+  before: DateTime
+  first: Int
+  last: Int
+}
+
+
+
+#
+# keep this file in sync
+# with `src/component/pagination/schema.ts`
+#

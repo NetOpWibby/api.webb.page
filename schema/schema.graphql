@@ -1,0 +1,84 @@
+scalar DateTime
+scalar Decimal
+
+# import from "api.graphql"
+# import from "blogpost.graphql"
+# import from "error.graphql"
+# import from "login.graphql"
+# import from "pagination.graphql"
+# import from "session.graphql"
+# import from "user.graphql"
+
+"""
+All the queries that enable the API to function
+"""
+
+type BooleanResponse {
+  "Was the operation successful?"
+  success: Boolean
+}
+
+type Query {
+  """
+  BlogPost queries
+  """
+  blogpost(params: BlogPostQuery): BlogPostResponse
+  blogposts(pagination: PaginationOptions, params: BlogPostsQuery): BlogPostsResponse
+
+  """
+  Login query
+  """
+  login(params: LoginQuery): LoginResponse
+
+  """
+  Personal key queries
+  """
+  personalKey(id: ID): PersonalKeyResponse
+  personalKeys(pagination: PaginationOptions, params: PersonalKeysQuery): PersonalKeysResponse
+
+  """
+  Session queries
+  """
+  session(params: SessionQuery): SessionResponse
+  sessions(params: SessionsQuery, pagination: PaginationOptions): SessionsResponse
+
+  """
+  User queries
+  """
+  user(params: UserQuery): UserResponse
+}
+
+type Mutation {
+  """
+  BlogPost mutations
+  """
+  createBlogPost(params: BlogPostInput): BlogPostResponse
+  deleteBlogPost(id: ID): BooleanResponse
+  updateBlogPost(params: BlogPostQuery, updates: BlogPostInput): BlogPostResponse
+
+  """
+  Login mutations
+  """
+  createLogin(params: LoginInput): LoginResponse
+  deleteLogin(params: LoginQuery): BooleanResponse
+
+  """
+  Personal key mutations
+  """
+  createPersonalKey(params: PersonalKeyInput): PersonalKeyResponse
+  deletePersonalKey(id: ID): BooleanResponse
+
+  """
+  Session mutations
+  """
+  createSession(params: SessionInput): SessionResponse
+  deleteSession(params: SessionQuery): BooleanResponse
+  updateSession(updates: SessionInput, params: SessionQuery): SessionResponse
+
+  """
+  User mutations
+  """
+  createUser(params: UserInput): UserResponse
+  deleteUser(params: UserQuery): BooleanResponse
+  updateUser(params: UserQuery, updates: UserInput): UserResponse
+}

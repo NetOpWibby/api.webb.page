@@ -1,0 +1,16 @@
+# OS garbage
+.DS_Store
+Thumbs.db
+
+# Folders
+dbschema/edgeql-js
+dist
+exports
+node_modules
+
+# Files
+.env
+*.css.map
+*.lock
+*.log
+package-lock.json

@@ -1,0 +1,45 @@
+
+
+
+#
+# Type
+#
+
+type Login {
+  for: User
+  link: String
+  token: String
+  #
+  created: DateTime!
+  id: ID!
+  updated: DateTime!
+}
+
+type LoginResponse {
+  detail: Login
+  error: Error
+}
+
+
+
+#
+# Input
+#
+
+input LoginInput {
+  "User email"
+  email: String!
+  token: String
+}
+
+input LoginQuery {
+  email: String
+  id: ID
+}
+
+
+
+#
+# keep this file in sync
+# with `src/component/login/schema.ts`
+#
